@@ -15,9 +15,14 @@ namespace TestCompany.Notes.DataAccess.Concrete.EfEntityFramework
 
         public DbSet<Note> Notes { get; set; }
 
+        public DbSet<Person> Persons { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new NoteMap());
+
+            modelBuilder.Entity<Person>().HasKey(p => p.Id);
+            modelBuilder.Entity<Person>().Property(p => p.Id).UseIdentityColumn();
         }
     }
 }

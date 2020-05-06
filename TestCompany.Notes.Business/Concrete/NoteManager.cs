@@ -16,9 +16,10 @@ namespace TestCompany.Notes.Business.Concrete
             _noteDal = noteDal;
         }
 
-        public void Add(Note note)
+        public Note Add(Note note)
         {
             _noteDal.Add(note);
+            return note;
         }
 
         public void Delete(Note note)
@@ -35,6 +36,9 @@ namespace TestCompany.Notes.Business.Concrete
             return _noteDal.GetList();
         }
 
-
+        public Note GetById(int id)
+        {
+            return _noteDal.Get(n => n.ID == id);
+        }
     }
 }

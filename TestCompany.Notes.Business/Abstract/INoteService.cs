@@ -8,8 +8,10 @@ namespace TestCompany.Notes.Business.Abstract
     public interface INoteService
     {
         List<Note> GetAll();
-        void Add(Note note);
+        Note GetById(int id);
+        Note Add(Note note);
         void Update(Note note);
         void Delete(Note note);
+        
     }
 }

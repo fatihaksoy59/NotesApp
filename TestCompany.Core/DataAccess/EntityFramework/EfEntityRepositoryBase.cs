@@ -12,13 +12,14 @@ namespace TestCompany.Core.DataAccess.EntityFramework
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()
     {
-        public void Add(TEntity entity)
+        public TEntity Add(TEntity entity)
         {
             using (var context = new TContext())
             {
                 var addedEntry = context.Add(entity);
                 addedEntry.State = EntityState.Added;
                 context.SaveChanges();
+                return entity;
             }
         }
 

@@ -7,7 +7,7 @@ namespace TestCompany.Notes.Entities.Concrete
 {
     public class Note:IEntity
     {
-        public string ID { get; set; }
+        public int ID { get; set; }
         public int Status { get; set; }
 
         //LastUpdated ekle
